@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Results</title>
+    <style>
+        h1 {
+            width: 100%;
+            text-align: center;
+            margin: 20px 0;
+        }
+        main {
+            margin: auto;
+            width: 350px;
+            border: 1px solid black;
+            border-radius: 10px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            align-items: center;
+    
+
+        }
+        
+        button {
+            width: 100px;
+            height: 30px;
+
+        }
+    </style>
+</head>
+<body>
+    <h1>Results</h1>
+    <main>
+        <p>You sent the following values:</p>
+        <ul>
+            {% for n in numbers %}
+                <li>{{ n }}</li>
+            {% endfor %}
+        </ul>
+        <p><strong>Average:</strong> {{ average }}</p>
+        <p><strong>Is the average greater than 50?</strong> {{ isBiggerThan|yesno:"Yes,No" }}</p>
+        <p><strong>Amount of Even Numbers:</strong> 
+            {% if evenNumbers %}
+                {{ evenNumbers|join:", " }}
+            {% else %}
+                None
+            {% endif %}
+        </p>
+        <p><strong>Amount of Odd numbers:</strong> 
+            {% if oddNumbers %}
+                {{ oddNumbers|join:", " }}
+            {% else %}
+                None
+            {% endif %}
+        </p>
+        <p><strong>Numbers greater than 10:</strong> 
+            {% if numbersBiggerThanTen %}
+                {{ numbersBiggerThanTen|join:", " }}
+            {% else %}
+                None
+            {% endif %}
+        </p>
+
+    </main>
+    <a href="/">Back to the form</a>
+</body>
+</html> 
