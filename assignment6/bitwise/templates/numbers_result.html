@@ -34,26 +34,32 @@
     <h1>Results</h1>
     <main>
         <p>You sent the following values:</p>
-        <ul>
-            {% for n in numbers %}
-                <li>{{ n }}</li>
-            {% endfor %}
-        </ul>
-        <p><strong>Average:</strong> {{ average }}</p>
-        <p><strong>Is the average greater than 50?</strong> {{ isBiggerThan|yesno:"Yes,No" }}</p>
-        <p><strong>Amount of Even Numbers:</strong> 
-            {% if evenNumbers %}
-                {{ evenNumbers|join:", " }}
-            {% else %}
-                None
+        <p>
+            {% if numbers %}
+                {{ numbers|join:", " }}
             {% endif %}
         </p>
-        <p><strong>Amount of Odd numbers:</strong> 
-            {% if oddNumbers %}
-                {{ oddNumbers|join:", " }}
-            {% else %}
-                None
+        {% if hasNegatives %}
+        <div style="color: red; font-weight: bold;">
+            There are some negative values: 
+            {% if negativeNumbers %}
+                {{ negativeNumbers|join:", " }}
             {% endif %}
+            
+        </div>
+        {% endif %}
+        <p><strong>Average:</strong> {{ average }}</p>
+        <p><strong>Is the average greater than 50?</strong> {{ isBiggerThan|yesno:"Yes,No" }}</p>
+        <p><strong>Amount of Positive Numbers:</strong> 
+            {{ amountPositiveNumbers}}
+            
+        </p>
+        <p><strong>Amount of Even Numbers:</strong> 
+            {{ evenNumbers}}
+    
+        </p>
+        <p><strong>Amount of Odd numbers:</strong> 
+            {{ oddNumbers}}
         </p>
         <p><strong>Numbers greater than 10:</strong> 
             {% if numbersBiggerThanTen %}

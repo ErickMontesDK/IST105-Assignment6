@@ -75,10 +75,14 @@ WSGI_APPLICATION = 'assignment6.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'djongo',
+        'NAME': 'cctbdb',
+        'CLIENT': {
+            'host': 'mongodb://cctb:cctb2025@<MONGO_EC2_PUBLIC_IP>:27017/cctbdb?authSource=cctbdb',
+        }
     }
 }
+
 
 
 # Password validation
