@@ -1,4 +1,6 @@
 from django.shortcuts import render
+
+from bitwise.models import NumbersCalculation
 from .forms import NumbersForm
 
 # Create your views here.
@@ -39,7 +41,7 @@ def numbers_view(request):
                     
             numbersBiggerThanTen.sort()
                 
-            NumbersForm.objects.create(
+            NumbersCalculation.objects.create(
                 input_a=numberA,
                 input_b=numberB,
                 input_c=numberC,
